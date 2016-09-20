@@ -4,7 +4,11 @@ var ReactDOM = require('react-dom');
 var Address = React.createClass({
 	render: function(){
 		return (
-			<input type="text"/>
+			<div>
+				<span>Address: </span>
+				<input type="text"/>
+				<button>Search</button>
+			</div>
 		)
 	}
 });
