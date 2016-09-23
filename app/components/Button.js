@@ -53,13 +53,6 @@ var SingleButton = React.createClass({
 				}
 			})
 		}
-		//, obj.vegan: !this.state.obj.vegan
-		
-			//for (var key in this.state.obj) {
-				//if (this.props.text == key){
-					//this.state.obj[key] = this.state.selected;
-				//}
-			//}
 		console.log(this.state.obj);
 	},
 
