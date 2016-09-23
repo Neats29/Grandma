@@ -12,10 +12,16 @@ var Search = React.createClass({
 	searchVisiblity:{
 		"display": "" 
 	},
+
+	toggleSearchVisibility: function(value){
+		var clone = Object.assign({}, this.searchVisiblity);
+		this.searchVisiblity = clone;
+		this.searchVisiblity.display = value;
+	},
 	
 	clickSearch: function() {
 		this.setState({ searched: true });
-		this.searchVisiblity.display = "none";
+		this.toggleSearchVisibility("none");
 	},
 
 	getPostCode: function(e) {
@@ -24,10 +30,11 @@ var Search = React.createClass({
 
 	ChangeAddress: function() {
 		this.setState({ searched: false });
-		this.searchVisiblity.display = "inline-block";
+		this.toggleSearchVisibility("inline-block");
 	},
 
 	render: function() {
+
 		var ShowResults = (
 			<div>
 				<ShowAddress onClick={this.ChangeAddress} value={this.state.postCode}/> <Categories />
