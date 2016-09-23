@@ -2,30 +2,77 @@ var React = require('react');
 
 var Button = React.createClass({
 	render: function(){
-		var dietButtons = this.props.dietTypes.map((diet, index) => {
 			return (
-					 <div key={`diet-${index}`}>
-						 <button onClick={this.props.onClick} key={diet}>{diet}</button>
-					 </div>
-			 )
-		});
-		return (
-			<div>{dietButtons}</div>
-		)
+				<div>
+					{this.props.dietTypes.map((diet, index) => {
+						return <SingleButton text={diet} onClick={this.props.onClick} key={diet}/>
+					}, this) }
+				</div>
+		 )
 	}
 });
 
-//function Button(props) {
-	//var dietButtons = props.dietTypes.map((diet, index) => {
-		//return (
-			 //<div key={`diet-${index}`}>
-				 //<button onClick={props.onClick} key={diet}>{diet}</button>
-				 //</div>
-		 //)
-		//});
-		//return (
-			//<div>{dietButtons}</div>
-		//)
-	//}
+var SingleButton = React.createClass({
+	getInitialState: function() {
+		return { selected: false,
+			obj: {
+				veg: false,
+				vegan: false,
+				gf: false
+			}
+		};
+	},
+	handleClick: function(event) {
+		this.setState({
+			selected: !this.state.selected,
+		});
+
+		var x = event.target.innerHTML;
+		var text = this.props.text;
+		if (this.props.text == 'veg'){
+			this.setState({
+				obj: {
+					veg: !this.state.obj.veg,
+					vegan: this.state.obj.vegan,
+					gf: this.state.obj.gf
+				}
+			})
+		} else if (this.props.text == 'vegan') {
+
+			this.setState({
+				obj: {
+					veg: this.state.obj.veg,
+					vegan: !this.state.obj.vegan,
+					gf: this.state.obj.gf
+				}
+			})
+		} else {
+			this.setState({
+				obj: {
+					gf: !this.state.obj.gf,
+				}
+			})
+		}
+		//, obj.vegan: !this.state.obj.vegan
+		
+			//for (var key in this.state.obj) {
+				//if (this.props.text == key){
+					//this.state.obj[key] = this.state.selected;
+				//}
+			//}
+		console.log(this.state.obj);
+	},
+
+	render: function() {
+		var style = this.state.selected ? { "backgroundColor":"yellow" } : {
+			"backgroundColor":""
+		};
+		return (
+			<button style={style} onClick={this.handleClick}> 
+				{this.props.text}
+			</button>
+		)
+	}
+});
 
 module.exports = Button;
