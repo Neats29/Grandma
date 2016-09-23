@@ -1,5 +1,4 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
 var EachResult = require('./../components/Each_result.js');
 
 var Results = React.createClass({

@@ -1,28 +1,21 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
-var Button = require('./../components/Button.js');
-var Address = require('./../components/Input.js');
+var Button = require('./../components/Button');
 
 var Categories = React.createClass({
-	getInitialState: function() {
-		return { dietSelected: false }
-	},
-
-	handleClick: function() {
-		this.setState({ dietSelected: true });
+	handleClick: function(e) {
+		if (e.target.style.backgroundColor === "yellow") {
+			e.target.style.backgroundColor = null;
+		} else {
+			e.target.style.backgroundColor = "yellow";
+		}
 	},
 
 	render: function() {
-		var isSelected = this.state.dietSelected;
-		var style = isSelected ?
-		{"backgroundColor":"yellow"} :
-		{"backgroundColor":""};
-
-		var specialDiet = ['Veg', 'Vegan', 'Kosher', 'Halal'];
+		var specialDiet = ['Veg', 'Vegan', 'Kosher', 'Halal', 'Gluten-free'];
 			return (
 				<div>
-					<Address />
-					<Button onClick={this.handleClick} style={style} dietTypes={specialDiet } /> </div>
+					<Button onClick={this.handleClick} dietTypes={specialDiet } />
+				</div>
 			)
 	}
 });
