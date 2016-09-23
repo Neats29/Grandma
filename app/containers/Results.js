@@ -7,13 +7,16 @@ var Results = React.createClass({
 		var path = "../assets/img/";
 		var meals = [{
 			image: path + 'pizza.png',
-			cusine: 'Italian'
+			cusine: 'Italian',
+			diet: ['veg']
 		}, {
 			image: path + 'tahchin.png',
-			cusine: 'Persian'
+			cusine: 'Persian',
+			diet: []
 		}, {
 			image: path + 'arepa.png',
-			cusine: 'Venezuelan'
+			cusine: 'Venezuelan',
+			diet: ['veg', 'vegan', 'gluten-free']
 		}];
 			return (
 				<div>
