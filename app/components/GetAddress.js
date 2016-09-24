@@ -1,6 +1,6 @@
 var React = require('react');
 
-var Address = React.createClass({
+var GetAddress = React.createClass({
 	render: function(){
 		return (
 			<div style={this.props.style}>
@@ -13,4 +13,4 @@ var Address = React.createClass({
 });
 
 
-module.exports = Address;
+module.exports = GetAddress;

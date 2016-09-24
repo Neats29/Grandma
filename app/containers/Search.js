@@ -1,8 +1,7 @@
 var React = require('react');
-var Address = require('./../components/GetAddress');
+var GetAddress = require('./../components/GetAddress');
 var ShowAddress = require('./../components/ShowAddress');
-var Categories = require('./Categories');
-var Results = require('./Results');
+var CategorisedResults = require('./CategorisedResults');
 
 var Search = React.createClass({
 	getInitialState: function() {
@@ -29,6 +28,7 @@ var Search = React.createClass({
 	},
 
 	ChangeAddress: function() {
+		//TODO: nullify the postcode and clearn the input field 
 		this.setState({ searched: false });
 		this.toggleSearchVisibility("inline-block");
 	},
@@ -37,13 +37,13 @@ var Search = React.createClass({
 
 		var ShowResults = (
 			<div>
-				<ShowAddress onClick={this.ChangeAddress} value={this.state.postCode}/> <Categories />
-				<Results />
+				<ShowAddress onClick={this.ChangeAddress} value={this.state.postCode}/> 
+				<CategorisedResults />
 			</div>
 			);
 			return (
 				<div>
-					<Address style={this.searchVisiblity} onClick={this.clickSearch} onChange={this.getPostCode} />
+					<GetAddress style={this.searchVisiblity} onClick={this.clickSearch} onChange={this.getPostCode} />
 					{ this.state.searched ? ShowResults : null }
 				</div>
 			)
