@@ -1,6 +1,7 @@
 var React = require('react');
 
 var EachResult = React.createClass({
+
 	noCategorySelected: function() {
 		var unselected = 0, selectable = 0;
 		for (var prop in this.props.selectedDiet) {
@@ -11,6 +12,7 @@ var EachResult = React.createClass({
 		}
 		return unselected === selectable;
 	},
+
 	render: function(){
 		let result = this.props.meals.map((meal, index) => {
 			let renderedMeal = (key) => {

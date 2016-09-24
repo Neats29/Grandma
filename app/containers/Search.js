@@ -9,7 +9,8 @@ var Search = React.createClass({
 	},
 
 	searchVisiblity:{
-		"display": "" 
+		"display": "flex",
+		"justify-content": "center"
 	},
 
 	toggleSearchVisibility: function(value){
@@ -30,7 +31,7 @@ var Search = React.createClass({
 	ChangeAddress: function() {
 		//TODO: nullify the postcode and clearn the input field 
 		this.setState({ searched: false });
-		this.toggleSearchVisibility("inline-block");
+		this.toggleSearchVisibility("flex");
 	},
 
 	render: function() {
