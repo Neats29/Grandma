@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 var GetAddress = require('./../components/GetAddress');
 var ShowAddress = require('./../components/ShowAddress');
 var CategorisedResults = require('./CategorisedResults');
@@ -10,7 +10,7 @@ var Search = React.createClass({
 
 	searchVisiblity:{
 		"display": "flex",
-		"justify-content": "center"
+		"justifyContent": "center"
 	},
 
 	toggleSearchVisibility: function(value){
